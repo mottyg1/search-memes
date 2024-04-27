@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MiniSearch Example</title>
+    <style>
+        #search-bar {
+            width: 300px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>MiniSearch Example</h1>
+  "main": "node_modules/expo/AppEntry.js",
+
+<input type="text" id="search-bar" placeholder="Search..."/>
+
+<ul id="results"></ul>
+
+<script src="https://cdn.jsdelivr.net/npm/minisearch/dist/minisearch.min.js"></script>
+<script>
+    const search = new MiniSearch({
+        fields: ['text', 'series'],
+        storeFields: ['image_url', 'text', 'series'],
+        idField: 'image_url',
+        searchOptions: {
+            boost: {text: 2}
+        }
+    });
+
+    function fetchAndIndexData() {
+        fetch('https://searchmemes.s3.eu-west-2.amazonaws.com/memes.json', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+            },
+        })
+            .then(response => response.json())
+            .then((docs) => {
+                search.addAll(docs);
+                console.log('Data indexed.');
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    function displayResults(query) {
+        const resultsElement = document.getElementById('results');
+        resultsElement.innerHTML = '';
+
+        const results = search.search(query);
+        results.forEach(result => {
+            const img = document.createElement('img');
+            img.src = result.image_url;
+            resultsElement.appendChild(img);
+        });
+    }
+
+    const searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('input', (event) => {
+        const query = event.target.value;
+        displayResults(query);
+    });
+
+    fetchAndIndexData();
+</script>
+</body>
+</html>
