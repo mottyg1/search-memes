@@ -26,12 +26,12 @@ const MainView = () => {
         searchOptions: {
             combineWith: 'AND',
             boost: { text: 2 },
-            fuzzy: 0.2,
-            maxFuzzy: 2,
+            fuzzy: 0.15,
+            maxFuzzy: 1,
             prefix: true,
             weights: {
               prefix: 0.5,
-              fuzzy: 0.3
+              fuzzy: 0.2
             }
           }
       });
