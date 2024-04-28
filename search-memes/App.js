@@ -1,10 +1,10 @@
-import { StyleSheet, View } from 'react-native';
-import SearchView from './components/SearchView';
+import { Platform, StyleSheet, View } from 'react-native';
+import MainView from './components/MainView';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <SearchView />
+      <MainView />
     </View>
   );
 }
@@ -15,6 +15,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%'
   },
 });

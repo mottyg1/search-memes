@@ -5,16 +5,16 @@ import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
 const ResultsList = ({ prefixUrl, results }) => {
   const renderResultItem = ({ item }) => {
     return (
-    //  <View style={styles.resultItem}>
-     //   <Text style={styles.tags}>{item.series.join(', ')}</Text>
+      <View style={styles.resultItem}>
+        <Text style={styles.tags}>{item.series.join(', ')}</Text>
         <Image source={{ uri: prefixUrl + item.image_url }} style={styles.image} />
-    //  </View>
+      </View>
     );
   };
 
   return (
     <FlatList
-      style={styles.root}
+      style={{ width: '95%' }}
       data={results}
       renderItem={renderResultItem}
       keyExtractor={(item) => item.id.toString()}
@@ -24,12 +24,9 @@ const ResultsList = ({ prefixUrl, results }) => {
 };
 
 const styles = StyleSheet.create({
-    root: {
-      width: '100%'
-    },
     list: {
       width: '100%',
-      paddingHorizontal: 16,
+    //  paddingHorizontal: 16,
       paddingVertical: 8,
     },
     resultItem: {
@@ -48,10 +45,7 @@ const styles = StyleSheet.create({
     },
     image: {
       width: '100%',
-      borderTopLeftRadius: 4,
-      borderTopRightRadius: 4,
       aspectRatio: 1,
-      heigh: undefined,
       resizeMode: 'contain'
     },
     tags: {
