@@ -179,7 +179,7 @@ endif
 
 .PHONY: clean help lists proto-model tesseract-langdata training unicharset charfreq
 
-ALL_FILES = $(and $(wildcard $(GROUND_TRUTH_DIR)),$(shell find -L $(GROUND_TRUTH_DIR) -name '*.gt.txt'))
+ALL_FILES = $(and $(wildcard $(GROUND_TRUTH_DIR)),$(shell "C:\Program Files\Git\usr\bin\find.exe" -L $(GROUND_TRUTH_DIR) -name '*.gt.txt'))
 unexport ALL_FILES # prevent adding this to envp in recipes (which can cause E2BIG if too long; cf. make #44853)
 ALL_GT = $(OUTPUT_DIR)/all-gt
 ALL_LSTMF = $(OUTPUT_DIR)/all-lstmf
