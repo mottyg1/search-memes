@@ -7,7 +7,10 @@ const ResultsList = ({ prefixUrl, results }) => {
     return (
       <View style={styles.resultItem}>
         <Text style={styles.tags}>{item.series.join(', ')}</Text>
-        <Image source={{ uri: prefixUrl + item.image_url }} style={styles.image} />
+        <Text style={styles.tags}>ציון: {item.score}</Text>
+        <Text style={styles.tags}>מילים מתאמתות: {Object.keys(item.match).join(', ')}</Text>
+        <Text style={styles.tags}>טקסט מחולץ: {item.text}</Text>
+        <Image source={{ uri: prefixUrl + item.image_url }} style={[styles.image, {aspectRatio: item.aspect_ratio}]} />
       </View>
     );
   };
@@ -15,7 +18,7 @@ const ResultsList = ({ prefixUrl, results }) => {
   return (
     <FlatList
       style={{ width: '95%' }}
-      data={results}
+      data={results.sort((a,b)=>b.score-a.score)}
       renderItem={renderResultItem}
       keyExtractor={(item) => item.id.toString()}
       contentContainerStyle={styles.list}
@@ -26,7 +29,6 @@ const ResultsList = ({ prefixUrl, results }) => {
 const styles = StyleSheet.create({
     list: {
       width: '100%',
-    //  paddingHorizontal: 16,
       paddingVertical: 8,
     },
     resultItem: {
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     },
     image: {
       width: '100%',
-      aspectRatio: 1,
+      paddingHorizontal: 10,
       resizeMode: 'contain'
     },
     tags: {

@@ -22,11 +22,17 @@ const MainView = () => {
     const miniSearchInstance = new MiniSearch({
         idField: 'image_url',
         fields: ['text', 'series'],
-        storeFields: ['image_url', 'text', 'series'],
+        storeFields: ['image_url', 'text', 'series', 'aspect_ratio'],
         searchOptions: {
+            combineWith: 'AND',
             boost: { text: 2 },
-            fuzzy: 0.1,
-            prefix: true
+            fuzzy: 0.2,
+            maxFuzzy: 2,
+            prefix: true,
+            weights: {
+              prefix: 0.5,
+              fuzzy: 0.3
+            }
           }
       });
 
@@ -36,6 +42,7 @@ const MainView = () => {
         miniSearchInstance.addAll(data);
         setDb(miniSearchInstance);
         setLoading(false);
+        setQuery('שלום') // debug
       })
       .catch(error => console.error('Error building memes DB:', error));
   }, []);
