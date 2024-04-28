@@ -2,14 +2,18 @@ import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
 
 
-const ResultsList = ({ prefixUrl, results }) => {
+const ResultsList = ({ prefixUrl, results, showSearchDebugData }) => {
   const renderResultItem = ({ item }) => {
     return (
       <View style={styles.resultItem}>
         <Text style={styles.tags}>{item.series.join(', ')}</Text>
-        <Text style={styles.tags}>ציון: {item.score}</Text>
-        <Text style={styles.tags}>מילים מתאמתות: {Object.keys(item.match).join(', ')}</Text>
-        <Text style={styles.tags}>טקסט מחולץ: {item.text}</Text>
+        {showSearchDebugData && (
+            <>
+                <Text style={styles.tags}>ציון: {item.score}</Text>
+                <Text style={styles.tags}>מילים מתאמתות: {Object.keys(item.match).join(', ')}</Text>
+                <Text style={styles.tags}>טקסט מחולץ: {item.text}</Text>
+            </>
+        )}
         <Image source={{ uri: prefixUrl + item.image_url }} style={[styles.image, {aspectRatio: item.aspect_ratio}]} />
       </View>
     );
@@ -17,7 +21,7 @@ const ResultsList = ({ prefixUrl, results }) => {
 
   return (
     <FlatList
-      style={{ width: '95%' }}
+      style={{ width: '100%'}}
       data={results.sort((a,b)=>b.score-a.score)}
       renderItem={renderResultItem}
       keyExtractor={(item) => item.id.toString()}
@@ -30,6 +34,7 @@ const styles = StyleSheet.create({
     list: {
       width: '100%',
       paddingVertical: 8,
+      marginHorizontal: 10
     },
     resultItem: {
       width: '100%',
