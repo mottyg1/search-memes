@@ -6,3 +6,5 @@ search-memes/package-lock.json
 search-memes/node_modules/
 
 ocr/.idea/
+
+tesstrain-main/data/heb_kan11/checkpoints/

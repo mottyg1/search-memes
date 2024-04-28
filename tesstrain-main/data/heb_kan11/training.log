@@ -1,0 +1,48 @@
+Loaded file data/heb/heb_kan11.lstm, unpacking...
+Warning: LSTMTrainer deserialized an LSTMRecognizer!
+Code range changed from 69 to 69!
+old_mgr.Init(old_traineddata):Error:Assert failed:in file ../../../src/training/unicharset/lstmtrainer.cpp, line 132
+Loaded file data/heb/heb_kan11.lstm, unpacking...
+Warning: LSTMTrainer deserialized an LSTMRecognizer!
+Code range changed from 69 to 69!
+Num (Extended) outputs,weights in Series:
+  1,36,0,1:1, 0
+Num (Extended) outputs,weights in Series:
+  C3,3:9, 0
+  Ft16:16, 160
+Total weights = 160
+  [C3,3Ft16]:16, 160
+  Mp3,3:16, 0
+  TxyLfys48:48, 12480
+  Lfx96:96, 55680
+  RxLrx96:96, 74112
+  Lfx192:192, 221952
+  Fc69:69, 13317
+Total weights = 377701
+Previous null char=2 mapped to 2
+Continuing from data/heb/heb_kan11.lstm
+2 Percent improvement time=15, best error was 100 @ 0
+At iteration 15/100/100, mean rms=0.401%, delta=0.579%, BCER train=1.366%, BWER train=5.083%, skip ratio=0.000%, New best BCER = 1.366 Transitioned to stage 1 wrote best model:data/heb_kan11/checkpoints/heb_kan11_1.366_15_100.checkpoint wrote checkpoint.
+2 Percent improvement time=21, best error was 100 @ 0
+At iteration 21/200/200, mean rms=0.294%, delta=0.389%, BCER train=0.841%, BWER train=3.542%, skip ratio=0.000%, New best BCER = 0.841 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.841_21_200.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/300/300, mean rms=0.232%, delta=0.265%, BCER train=0.578%, BWER train=2.472%, skip ratio=0.000%, New best BCER = 0.578 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.578_22_300.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/400/400, mean rms=0.191%, delta=0.199%, BCER train=0.434%, BWER train=1.854%, skip ratio=0.000%, New best BCER = 0.434 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.434_22_400.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/500/500, mean rms=0.165%, delta=0.159%, BCER train=0.347%, BWER train=1.483%, skip ratio=0.000%, New best BCER = 0.347 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.347_22_500.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/600/600, mean rms=0.146%, delta=0.133%, BCER train=0.289%, BWER train=1.236%, skip ratio=0.000%, New best BCER = 0.289 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.289_22_600.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/700/700, mean rms=0.133%, delta=0.114%, BCER train=0.248%, BWER train=1.060%, skip ratio=0.000%, New best BCER = 0.248 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.248_22_700.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/800/800, mean rms=0.122%, delta=0.099%, BCER train=0.217%, BWER train=0.927%, skip ratio=0.000%, New best BCER = 0.217 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.217_22_800.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/900/900, mean rms=0.113%, delta=0.088%, BCER train=0.193%, BWER train=0.824%, skip ratio=0.000%, New best BCER = 0.193 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.193_22_900.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/1000/1000, mean rms=0.106%, delta=0.080%, BCER train=0.173%, BWER train=0.742%, skip ratio=0.000%, New best BCER = 0.173 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.173_22_1000.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/1100/1100, mean rms=0.071%, delta=0.022%, BCER train=0.037%, BWER train=0.233%, skip ratio=0.000%, New best BCER = 0.037 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.037_22_1100.checkpoint wrote checkpoint.
+2 Percent improvement time=22, best error was 100 @ 0
+At iteration 22/1200/1200, mean rms=0.056%, delta=0.002%, BCER train=0.005%, BWER train=0.033%, skip ratio=0.000%, New best BCER = 0.005 wrote best model:data/heb_kan11/checkpoints/heb_kan11_0.005_22_1200.checkpoint wrote checkpoint.
+Finished! Selected model with minimal training error rate (BCER) = 0.005
