@@ -21,7 +21,7 @@ const ResultsList = ({ prefixUrl, results, showSearchDebugData }) => {
 
   return (
     <FlatList
-      style={{ width: '100%'}}
+      style={{ width: '100%', paddingHorizontal: 10 }}
       data={results.sort((a,b)=>b.score-a.score)}
       renderItem={renderResultItem}
       keyExtractor={(item) => item.id.toString()}
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     list: {
       width: '100%',
       paddingVertical: 8,
-      marginHorizontal: 10
+    //  marginHorizontal: 10
     },
     resultItem: {
       width: '100%',

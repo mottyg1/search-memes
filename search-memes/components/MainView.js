@@ -57,7 +57,7 @@ const MainView = () => {
   }
 
   return (
-    <View style={{ width: '100%', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ maxWidth: 700, width: '100%', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <ResultsList results={results} prefixUrl={prefixUrl} showSearchDebugData={showSearchDebugData} />
       <SearchView query={query} setQuery={setQuery} 
         showSearchDebugData={showSearchDebugData} setShowSearchDebugData={setShowSearchDebugData}
