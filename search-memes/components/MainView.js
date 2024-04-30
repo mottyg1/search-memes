@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import MiniSearch from 'minisearch';
 import ResultsList from './ResultsList';
 import SearchView from './SearchView';
+
 
 const MainView = () => {
   const prefixUrl = "https://searchmemes.s3.eu-west-2.amazonaws.com/";
