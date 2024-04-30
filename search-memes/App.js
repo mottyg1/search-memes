@@ -4,6 +4,7 @@ import SettingsView from './components/SettingsView';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SettingsProvider } from './SettingsContext';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function MainViewWrapper() {
   return (
@@ -35,10 +36,25 @@ export default function App() {
   return (
     <SettingsProvider>
       <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="חיפוש" component={MainViewWrapper} />
-          <Tab.Screen name="אלבומים" component={AlbumsViewWrapper} />
-          <Tab.Screen name="הגדרות" component={SettingsViewWrapper} />
+        <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName='search' >
+          <Tab.Screen name="settings" component={SettingsViewWrapper} options={{
+              tabBarLabel: 'הגדרות',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="shimmer" color={color} size={size} />
+              ),
+            }}/>
+          <Tab.Screen name="albums" component={AlbumsViewWrapper} options={{
+              tabBarLabel: 'אלבומים',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="image-album" color={color} size={size} />
+              ),
+            }}/>
+          <Tab.Screen name="search" component={MainViewWrapper} options={{
+              tabBarLabel: 'חיפוש',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="magnify" color={color} size={size} />
+              ),
+            }}/>
         </Tab.Navigator>
       </NavigationContainer>
     </SettingsProvider>
