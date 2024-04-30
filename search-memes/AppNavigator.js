@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { useSettings } from './contexts/SettingsContext';
 import React, { useState, useEffect } from 'react';
 import MiniSearch from 'minisearch';
+import AlbumsScreen from './components/AlbumsScreen';
 
 
 function MainViewWrapper({ route }) {
@@ -21,8 +22,8 @@ function MainViewWrapper({ route }) {
 function AlbumsViewWrapper({ route }) {
     const { memesJson } = route.params;
     return (
-      <View styles={styles.basic}>
-        <Text>האלבומים שיש הם אחד שתיים שלוש</Text>
+      <View style={styles.basic}>
+        <AlbumsScreen memesJson={memesJson} />
       </View>
     );
 }
@@ -35,15 +36,6 @@ function SettingsViewWrapper() {
     );
 }
 
-function getChaptersByFirstSeries(objectsList) {
-    return objectsList.reduce((result, obj) => {
-      const [firstTag, secondTag] = obj.series;
-      if (firstTag && secondTag) {
-        result[firstTag] = [...new Set([...(result[firstTag] || []), secondTag])];
-      }
-      return result;
-    }, {});
-  }
 
 const AppNavigtor = () => {
 
@@ -95,7 +87,7 @@ const AppNavigtor = () => {
       
     return (
           <NavigationContainer>
-            <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName='search' >
+            <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName='albums' >
               <Tab.Screen name="settings" component={SettingsViewWrapper} options={{
                   tabBarLabel: 'הגדרות',
                   tabBarIcon: ({ color, size }) => (
