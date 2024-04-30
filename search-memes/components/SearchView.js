@@ -4,7 +4,7 @@ import { SearchBar } from '@rneui/themed';
 import { Switch } from '@rneui/base';
 
 
-const SearchView = ({ query, setQuery, showSearchDebugData, setShowSearchDebugData }) => {
+const SearchView = ({ query, setQuery }) => {
     return (
         <View style={{height: '20%', width: '100%', paddingHorizontal: 10}}>
             <View style={{alignItems: 'center'}}>
@@ -17,14 +17,6 @@ const SearchView = ({ query, setQuery, showSearchDebugData, setShowSearchDebugDa
                     containerStyle={styles.searchContainer}
                     inputContainerStyle={styles.inputContainer}
                     inputStyle={{ textAlign: 'right', marginHorizontal:10, paddingHorizontal:10 }}
-                />
-            </View>
-            <View style={{flexDirection: 'row-reverse', justifyContent: 'right', alignItems: 'right', marginRight: 10}}>
-                <Text>הצג פרטי התאמתות</Text>
-                <Switch
-                    style={{marginRight: 10}}
-                    value={showSearchDebugData}
-                    onValueChange={() => setShowSearchDebugData(previousState => !previousState)}
                 />
             </View>
         </View>

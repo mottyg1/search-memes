@@ -7,6 +7,7 @@ export const useSettings = () => useContext(SettingsContext);
 export const SettingsProvider = ({ children }) => {
   const [settings, setSettings] = useState({
     prefixUrl: "https://searchmemes.s3.eu-west-2.amazonaws.com/",
+    showSearchDebugData: false,
   });
 
   const updateSettings = (newSettings) => {

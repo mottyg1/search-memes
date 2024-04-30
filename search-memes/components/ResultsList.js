@@ -3,14 +3,14 @@ import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
 import { useSettings } from '../SettingsContext';
 
 
-const ResultsList = ({ results, showSearchDebugData }) => {
+const ResultsList = ({ results }) => {
   const { settings, updateSettings } = useSettings();
 
   const renderResultItem = ({ item }) => {
     return (
       <View style={styles.resultItem}>
         <Text style={styles.tags}>{item.series.join(', ')}</Text>
-        {showSearchDebugData && (
+        {settings.showSearchDebugData && (
             <>
                 <Text style={styles.tags}>ציון: {item.score}</Text>
                 <Text style={styles.tags}>מילים מתאמתות: {Object.keys(item.match).join(', ')}</Text>

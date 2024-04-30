@@ -12,7 +12,6 @@ const MainView = () => {
   const [db, setDb] = useState(null);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
-  const [showSearchDebugData, setShowSearchDebugData] = useState(false);
 
   useEffect(() => {
     if (db) {
@@ -60,10 +59,8 @@ const MainView = () => {
 
   return (
     <View style={{ maxWidth: 700, width: '100%', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ResultsList results={results} showSearchDebugData={showSearchDebugData} />
-      <SearchView query={query} setQuery={setQuery} 
-        showSearchDebugData={showSearchDebugData} setShowSearchDebugData={setShowSearchDebugData}
-      />
+      <ResultsList results={results} />
+      <SearchView query={query} setQuery={setQuery} />
     </View>
   );
 };

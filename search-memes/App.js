@@ -1,5 +1,6 @@
 import { StyleSheet, View, Text } from 'react-native';
 import MainView from './components/MainView';
+import SettingsView from './components/SettingsView';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SettingsProvider } from './SettingsContext';
@@ -20,6 +21,14 @@ function AlbumsViewWrapper() {
   );
 }
 
+function SettingsViewWrapper() {
+  return (
+    <View styles={styles.basic}>
+      <SettingsView />
+    </View>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -29,6 +38,7 @@ export default function App() {
         <Tab.Navigator>
           <Tab.Screen name="חיפוש" component={MainViewWrapper} />
           <Tab.Screen name="אלבומים" component={AlbumsViewWrapper} />
+          <Tab.Screen name="הגדרות" component={SettingsViewWrapper} />
         </Tab.Navigator>
       </NavigationContainer>
     </SettingsProvider>
