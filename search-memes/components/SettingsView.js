@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Switch, Text } from 'react-native';
-import { useSettings } from '../SettingsContext';
+import { useSettings } from '../contexts/SettingsContext';
 
 const SettingsView = () => {
   const { settings, updateSettings } = useSettings();

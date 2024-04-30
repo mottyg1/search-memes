@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
-import { useSettings } from '../SettingsContext';
+import { useSettings } from '../contexts/SettingsContext';
 
 
 const ResultsList = ({ results }) => {
