@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
+import { useSettings } from '../SettingsContext';
 
 
-const ResultsList = ({ prefixUrl, results, showSearchDebugData }) => {
+const ResultsList = ({ results, showSearchDebugData }) => {
+  const { settings, updateSettings } = useSettings();
+
   const renderResultItem = ({ item }) => {
     return (
       <View style={styles.resultItem}>
@@ -14,7 +17,7 @@ const ResultsList = ({ prefixUrl, results, showSearchDebugData }) => {
                 <Text style={styles.tags}>טקסט מחולץ: {item.text}</Text>
             </>
         )}
-        <Image source={{ uri: prefixUrl + item.image_url }} style={[styles.image, {aspectRatio: item.aspect_ratio}]} />
+        <Image source={{ uri: settings.prefixUrl + item.image_url }} style={[styles.image, {aspectRatio: item.aspect_ratio}]} />
       </View>
     );
   };

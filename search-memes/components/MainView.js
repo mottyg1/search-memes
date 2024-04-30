@@ -3,10 +3,11 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import MiniSearch from 'minisearch';
 import ResultsList from './ResultsList';
 import SearchView from './SearchView';
+import { useSettings } from '../SettingsContext';
 
 
 const MainView = () => {
-  const prefixUrl = "https://searchmemes.s3.eu-west-2.amazonaws.com/";
+  const { settings, updateSettings } = useSettings();
   const [loading, setLoading] = useState(true);
   const [db, setDb] = useState(null);
   const [query, setQuery] = useState('');
@@ -38,7 +39,7 @@ const MainView = () => {
           }
       });
 
-    fetch(prefixUrl+'memes.json')
+    fetch(settings.prefixUrl+'memes.json')
       .then(response => response.json())
       .then(data => {
         miniSearchInstance.addAll(data);
@@ -59,7 +60,7 @@ const MainView = () => {
 
   return (
     <View style={{ maxWidth: 700, width: '100%', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ResultsList results={results} prefixUrl={prefixUrl} showSearchDebugData={showSearchDebugData} />
+      <ResultsList results={results} showSearchDebugData={showSearchDebugData} />
       <SearchView query={query} setQuery={setQuery} 
         showSearchDebugData={showSearchDebugData} setShowSearchDebugData={setShowSearchDebugData}
       />
