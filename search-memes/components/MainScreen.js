@@ -5,7 +5,7 @@ import SearchView from './SearchView';
 import { useSettings } from '../contexts/SettingsContext';
 
 
-const MainView = ({DB}) => {
+const MainScreen = ({DB}) => {
   const { settings, updateSettings } = useSettings();
 
   const [query, setQuery] = useState('');
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     
   });
 
-export default MainView;
+export default MainScreen;

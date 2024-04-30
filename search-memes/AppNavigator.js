@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
-import MainView from './components/MainView';
-import SettingsView from './components/SettingsView';
+import MainScreen from './components/MainScreen';
+import SettingsScreen from './components/SettingsScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -13,12 +13,13 @@ function MainViewWrapper({ route }) {
     const { DB } = route.params;
     return (
       <View style={styles.basic}>
-        <MainView DB={DB} />
+        <MainScreen DB={DB} />
       </View>
     );
 }
   
-function AlbumsViewWrapper() {
+function AlbumsViewWrapper({ route }) {
+    const { memesJson } = route.params;
     return (
       <View styles={styles.basic}>
         <Text>האלבומים שיש הם אחד שתיים שלוש</Text>
@@ -29,7 +30,7 @@ function AlbumsViewWrapper() {
 function SettingsViewWrapper() {
     return (
       <View styles={styles.basic}>
-        <SettingsView />
+        <SettingsScreen />
       </View>
     );
 }
@@ -51,13 +52,14 @@ const AppNavigtor = () => {
     const [loading, setLoading] = useState(true);
 
     const [DB, setDB] = useState(null);
+    const [memesJson, setMemesJson] = useState([]);
 
     useEffect(() => {
 
-    
         fetch(settings.prefixUrl+'memes.json')
           .then(response => response.json())
           .then(data => {
+            setMemesJson(data);
             const DB = new MiniSearch({
                 idField: 'image_url',
                 fields: ['text', 'series'],
@@ -100,7 +102,8 @@ const AppNavigtor = () => {
                     <MaterialCommunityIcons name="shimmer" color={color} size={size} />
                   ),
                 }}/>
-              <Tab.Screen name="albums" component={AlbumsViewWrapper} options={{
+              <Tab.Screen name="albums" component={AlbumsViewWrapper} initialParams={{memesJson: memesJson}}
+              options={{
                   tabBarLabel: 'אלבומים',
                   tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="image-album" color={color} size={size} />

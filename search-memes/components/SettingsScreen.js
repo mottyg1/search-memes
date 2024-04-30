@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Switch, Text } from 'react-native';
 import { useSettings } from '../contexts/SettingsContext';
 
-const SettingsView = () => {
+const SettingsScreen = () => {
   const { settings, updateSettings } = useSettings();
 
   const toggleSetting = (setting) => {
@@ -17,4 +17,4 @@ const SettingsView = () => {
   );
 };
 
-export default SettingsView;
+export default SettingsScreen;
