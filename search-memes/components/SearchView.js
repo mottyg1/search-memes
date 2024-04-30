@@ -14,6 +14,7 @@ const SearchView = ({ query, setQuery }) => {
                     value={query}
                     onChangeText={(text) => setQuery(text)}
                     lightTheme
+                    autoFocus
                     containerStyle={styles.searchContainer}
                     inputContainerStyle={styles.inputContainer}
                     inputStyle={{ textAlign: 'right', marginHorizontal:10, paddingHorizontal:10 }}
