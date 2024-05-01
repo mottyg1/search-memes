@@ -3,7 +3,7 @@ import MainScreen from './components/MainScreen';
 import SettingsScreen from './components/SettingsScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Icon } from '@rneui/themed';
 import { useSettings } from './contexts/SettingsContext';
 import React, { useState, useEffect } from 'react';
 import MiniSearch from 'minisearch';
@@ -91,21 +91,21 @@ const AppNavigtor = () => {
               <Tab.Screen name="settings" component={SettingsViewWrapper} options={{
                   tabBarLabel: 'הגדרות',
                   tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="shimmer" color={color} size={size} />
+                    <Icon name="settings" type="material" color={color} size={size} />
                   ),
                 }}/>
               <Tab.Screen name="albums" component={AlbumsViewWrapper} initialParams={{memesJson: memesJson}}
               options={{
                   tabBarLabel: 'אלבומים',
                   tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="image-album" color={color} size={size} />
+                    <Icon name="collections" type="material" color={color} size={size} />
                   ),
                 }}/>
               <Tab.Screen name="search" component={MainViewWrapper} initialParams={{DB: DB}}
                 options={{
                   tabBarLabel: 'חיפוש',
                   tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="magnify" color={color} size={size} />
+                    <Icon name="search" type="material" color={color} size={size} />
                   ),
                 }}/>
             </Tab.Navigator>
