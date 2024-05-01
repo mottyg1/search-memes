@@ -1,6 +1,8 @@
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
 import MainScreen from './components/MainScreen';
 import SettingsScreen from './components/SettingsScreen';
+import StatsScreen from './components/StatsScreen';
+import RandomScreen from './components/RandomScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from '@rneui/themed';
@@ -28,6 +30,23 @@ function AlbumsViewWrapper({ route }) {
     );
 }
   
+function StatsViewWrapper({ route }) {
+    const { memesJson } = route.params;
+    return (
+      <View style={styles.basic}>
+        <StatsScreen memesJson={memesJson} />
+      </View>
+    );
+}
+
+function RandomViewWrapper({ route }) {
+    const { memesJson } = route.params;
+    return (
+      <View style={styles.basic}>
+        <RandomScreen memesJson={memesJson} />
+      </View>
+    );
+}
 function SettingsViewWrapper() {
     return (
       <View styles={styles.basic}>
@@ -92,6 +111,20 @@ const AppNavigtor = () => {
                   tabBarLabel: 'הגדרות',
                   tabBarIcon: ({ color, size }) => (
                     <Icon name="settings" type="material" color={color} size={size} />
+                  ),
+                }}/>
+                <Tab.Screen name="stats" component={StatsViewWrapper} initialParams={{memesJson: memesJson}}
+              options={{
+                  tabBarLabel: 'סטטיסטיקות',
+                  tabBarIcon: ({ color, size }) => (
+                    <Icon name="bar-chart" type="material" color={color} size={size} />
+                  ),
+                }}/>
+                <Tab.Screen name="random" component={RandomViewWrapper} initialParams={{memesJson: memesJson}}
+              options={{
+                  tabBarLabel: 'אקראי',
+                  tabBarIcon: ({ color, size }) => (
+                    <Icon name="casino" type="material" color={color} size={size} />
                   ),
                 }}/>
               <Tab.Screen name="albums" component={AlbumsViewWrapper} initialParams={{memesJson: memesJson}}
