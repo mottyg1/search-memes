@@ -5,7 +5,7 @@ import SearchView from './SearchView';
 import { useSettings } from '../contexts/SettingsContext';
 
 
-const MainScreen = ({DB}) => {
+const MainScreen = ({ DB }) => {
   const { settings, updateSettings } = useSettings();
 
   const [query, setQuery] = useState('');
@@ -13,11 +13,11 @@ const MainScreen = ({DB}) => {
 
   useEffect(() => {
     if (DB) {
-      const searchResults = DB.search(query).slice(0,50);
+      const searchResults = DB.search(query).slice(0, 50);
       setResults(searchResults);
     }
   }, [query])
-  
+
   return (
     <View style={{ maxWidth: 700, width: '100%', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <ResultsList results={results} />
@@ -27,7 +27,7 @@ const MainScreen = ({DB}) => {
 };
 
 const styles = StyleSheet.create({
-    
-  });
+
+});
 
 export default MainScreen;
