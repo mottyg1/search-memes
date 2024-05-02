@@ -113,13 +113,6 @@ const AppNavigtor = () => {
                         <Icon name="settings" type="material" color={color} size={size} />
                     ),
                 }} />
-                <Tab.Screen name="stats" component={StatsViewWrapper} initialParams={{ memesJson: memesJson }}
-                    options={{
-                        tabBarLabel: 'סטטיסטיקות',
-                        tabBarIcon: ({ color, size }) => (
-                            <Icon name="bar-chart" type="material" color={color} size={size} />
-                        ),
-                    }} />
                 <Tab.Screen name="random" component={RandomViewWrapper} initialParams={{ memesJson: memesJson }}
                     options={{
                         tabBarLabel: 'אקראי',
@@ -127,6 +120,14 @@ const AppNavigtor = () => {
                             <Icon name="casino" type="material" color={color} size={size} />
                         ),
                     }} />
+                <Tab.Screen name="search" component={MainViewWrapper} initialParams={{ DB: DB }}
+                    options={{
+                        tabBarLabel: 'חיפוש',
+                        tabBarIcon: ({ color, size }) => (
+                            <Icon name="search" type="material" color={color} size={size} />
+                        ),
+                    }} />
+
                 <Tab.Screen name="albums" component={AlbumsViewWrapper} initialParams={{ memesJson: memesJson }}
                     options={{
                         tabBarLabel: 'אלבומים',
@@ -134,11 +135,11 @@ const AppNavigtor = () => {
                             <Icon name="collections" type="material" color={color} size={size} />
                         ),
                     }} />
-                <Tab.Screen name="search" component={MainViewWrapper} initialParams={{ DB: DB }}
+                <Tab.Screen name="stats" component={StatsViewWrapper} initialParams={{ memesJson: memesJson }}
                     options={{
-                        tabBarLabel: 'חיפוש',
+                        tabBarLabel: 'סטטיסטיקות',
                         tabBarIcon: ({ color, size }) => (
-                            <Icon name="search" type="material" color={color} size={size} />
+                            <Icon name="bar-chart" type="material" color={color} size={size} />
                         ),
                     }} />
             </Tab.Navigator>

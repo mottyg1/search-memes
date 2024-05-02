@@ -32,7 +32,7 @@ const MainScreen = ({ DB }) => {
       {query? 
         <ResultsList results={results} />
         :
-        <Text>תחפש משהו אל תסתכל עלי סתם</Text>
+        <Text>למה אתם מסתכלים עלי במקום לחפש ממים?</Text>
       }
       <TouchableOpacity style={styles.button} onPress={handleFocusSearch}>
         <Icon name="search" type="material" color="grey" size={30} />
