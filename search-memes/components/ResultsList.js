@@ -36,7 +36,6 @@ const ResultsList = ({ results }) => {
       data={results.sort((a, b) => b.score - a.score)}
       renderItem={renderResultItem}
       ListHeaderComponent={numOfResults}
-      keyExtractor={(item) => item.id.toString()}
       contentContainerStyle={styles.list}
     />
   );

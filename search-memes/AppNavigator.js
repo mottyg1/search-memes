@@ -24,9 +24,7 @@ function MainViewWrapper({ route }) {
 function AlbumsViewWrapper({ route }) {
     const { memesJson } = route.params;
     return (
-        <View style={styles.basic}>
-            <AlbumsScreen memesJson={memesJson} />
-        </View>
+        <AlbumsScreen memesJson={memesJson} />
     );
 }
 
@@ -106,7 +104,7 @@ const AppNavigtor = () => {
 
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName='search' >
+            <Tab.Navigator screenOptions={{ headerShown: false, style: styles.basic }} initialRouteName='search' >
                 <Tab.Screen name="settings" component={SettingsViewWrapper} options={{
                     tabBarLabel: 'הגדרות',
                     tabBarIcon: ({ color, size }) => (
@@ -154,6 +152,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+        alignContent: 'center',
     }
 });
 

@@ -5,7 +5,6 @@ import SearchView from './SearchView';
 import { useSettings } from '../contexts/SettingsContext';
 import { Icon } from '@rneui/themed';
 
-
 const MainScreen = ({ DB }) => {
   const { settings, updateSettings } = useSettings();
 
@@ -27,9 +26,9 @@ const MainScreen = ({ DB }) => {
   }, [query])
 
   return (
-    <View style={{ maxWidth: 700, width: '100%', flex: 1,  alignItems: 'center' }}>
+    <View style={{ maxWidth: 700, width: '100%', flex: 1, alignItems: 'center' }}>
       <SearchView query={query} setQuery={setQuery} searchInputRef={searchInputRef} />
-      {query? 
+      {query ?
         <ResultsList results={results} />
         :
         <Text>למה אתם מסתכלים עלי במקום לחפש ממים?</Text>
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     position: 'absolute',
     right: 10,
-    bottom: 100, 
+    bottom: 100,
     zIndex: 20
   },
 });
