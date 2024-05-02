@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import ResultsList from './ResultsList';
 import SearchView from './SearchView';
 import { useSettings } from '../contexts/SettingsContext';
@@ -21,15 +21,19 @@ const MainScreen = ({ DB }) => {
 
   useEffect(() => {
     if (DB) {
-      const searchResults = DB.search(query).slice(0, 50);
+      const searchResults = DB.search(query);
       setResults(searchResults);
     }
   }, [query])
 
   return (
-    <View style={{ maxWidth: 700, width: '100%', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ maxWidth: 700, width: '100%', flex: 1,  alignItems: 'center' }}>
       <SearchView query={query} setQuery={setQuery} searchInputRef={searchInputRef} />
-      <ResultsList results={results} />
+      {query? 
+        <ResultsList results={results} />
+        :
+        <Text>תחפש משהו אל תסתכל עלי סתם</Text>
+      }
       <TouchableOpacity style={styles.button} onPress={handleFocusSearch}>
         <Icon name="search" type="material" color="grey" size={30} />
       </TouchableOpacity>

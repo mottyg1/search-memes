@@ -106,7 +106,7 @@ const AppNavigtor = () => {
 
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName='albums' >
+            <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName='search' >
                 <Tab.Screen name="settings" component={SettingsViewWrapper} options={{
                     tabBarLabel: 'הגדרות',
                     tabBarIcon: ({ color, size }) => (
