@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { SearchBar } from '@rneui/themed';
-import { Switch } from '@rneui/base';
 
 
-const SearchView = ({ query, setQuery }) => {
+const SearchView = ({ query, setQuery, searchInputRef }) => {
     return (
-        <View style={{height: '20%', width: '100%', paddingHorizontal: 10}}>
+        <View style={{height: '10%', width: '100%', paddingHorizontal: 10}}>
             <View style={{alignItems: 'center'}}>
                 <SearchBar
                     style={{width: '100%'}}
+                    ref={searchInputRef}
                     placeholder='?אלו מילים מופיעות במם'
                     value={query}
                     onChangeText={(text) => setQuery(text)}
